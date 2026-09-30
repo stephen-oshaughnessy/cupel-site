@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cupel</title>
+  <meta name="description" content="Supply-chain security for the agentic era. Cupel scans MCP servers, agent skills and plugins before your agents trust them.">
+  <meta name="theme-color" content="#FBFAF7">
+  <meta property="og:title" content="Cupel">
+  <meta property="og:description" content="Supply-chain security for the agentic era.">
+  <meta property="og:url" content="https://cupelhq.com">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/cupel-ore-primary.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FBFAF7;
+      --rail: #E8E5DE;
+      --navy: #101C2A;
+      --ink-soft: #465366;
+      --ink-faint: #6B7585;
+      --gold: #DDAF4B;
+      --gold-light: #FFE3A0;
+      --gold-deep: #A97119;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --gutter: clamp(16px, 4vw, 32px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scrollbar-color: var(--rail) var(--paper);
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--navy);
+      font-family: "Figtree", ui-sans-serif, system-ui, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      caret-color: var(--gold-deep);
+    }
+
+    ::selection { background: var(--gold-light); color: var(--navy); }
+
+    :focus-visible {
+      outline: 2px solid var(--gold-deep);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* The frame: content, then the footer rule. */
+    .frame {
+      position: relative;
+      max-width: 1080px;
+      min-height: 100svh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero {
+      flex: 1 0 auto;
+      min-height: 72svh;
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: clamp(20px, 3vw, 32px);
+      padding: clamp(64px, 12vh, 128px) var(--gutter);
+      text-align: center;
+    }
+
+    .hero h1 { margin: 0; }
+
+    .hero h1 img {
+      width: clamp(240px, 46vw, 520px);
+    }
+
+    .tagline {
+      margin: 0;
+      font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      color: var(--ink-soft);
+      text-wrap: balance;
+    }
+
+    .about {
+      padding: clamp(16px, 3vw, 40px) var(--gutter) clamp(56px, 9vw, 104px);
+    }
+
+    .about-copy {
+      max-width: 60ch;
+      margin: 0 auto;
+    }
+
+    .about-copy p {
+      margin: 0;
+      font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+      line-height: 1.65;
+      color: var(--ink-soft);
+      text-wrap: pretty;
+    }
+
+    .about-copy p + p { margin-top: 1.25em; }
+
+    .about-copy strong {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .colophon {
+      border-top: 1px solid var(--rail);
+      padding: 28px var(--gutter);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.875rem;
+      color: var(--ink-faint);
+    }
+
+    .colophon .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* One authored moment: the mark resolves out of a soft blur, the line follows. */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero h1 img {
+        animation: resolve 1400ms var(--ease-out) both;
+      }
+      .tagline {
+        animation: rise 1100ms var(--ease-out) 260ms both;
+      }
+      @keyframes resolve {
+        from { opacity: 0; filter: blur(14px); transform: scale(0.97); }
+        to   { opacity: 1; filter: blur(0);    transform: scale(1); }
+      }
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <main>
+      <section class="hero">
+        <h1><img src="assets/cupel-logo-primary.svg" alt="Cupel" width="520" height="162"></h1>
+        <p class="tagline">Supply-chain security for the agentic era.</p>
+      </section>
+
+      <section class="about" aria-label="About Cupel">
+        <div class="about-copy">
+          <p>Your AI agents follow instructions from every MCP server, skill and plugin you connect, and those instructions go straight into the model as trusted input. Code review and dependency scanners can't read them. <strong>Cupel can.</strong></p>
+          <p>Cupel scans agentic extensions before they reach your agents. It flags poisoned tool descriptions, look-alike packages and silent changes after you've approved something. Every verdict shows the exact evidence behind it.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="colophon">
+      <span>Cupel</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>Coming soon</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>cupelhq.com</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cupel crawler</title>
+  <meta name="description" content="What the cupel-crawl crawler fetches, how it behaves, how to opt out, and how it handles personal data.">
+  <meta name="theme-color" content="#FBFAF7">
+  <link rel="icon" href="../assets/favicon.ico" sizes="any">
+  <link rel="icon" href="../assets/cupel-ore-primary.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FBFAF7;
+      --rail: #E8E5DE;
+      --navy: #101C2A;
+      --ink-soft: #465366;
+      --ink-faint: #5F6979; /* landing page uses #6B7585 (4.46:1, just under AA) */
+      --gold: #DDAF4B;
+      --gold-light: #FFE3A0;
+      --gold-deep: #A97119;
+      --gutter: clamp(16px, 4vw, 32px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--navy);
+      font-family: "Figtree", ui-sans-serif, system-ui, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--gold-light); color: var(--navy); }
+
+    :focus-visible {
+      outline: 2px solid var(--gold-deep);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    a { color: var(--navy); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+    a:hover { text-decoration-color: var(--gold-deep); }
+
+    .frame {
+      max-width: 1080px;
+      min-height: 100svh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.masthead {
+      padding: 28px var(--gutter);
+    }
+
+    header.masthead img { width: 120px; }
+
+    main {
+      flex: 1 0 auto;
+      padding: clamp(24px, 5vw, 56px) var(--gutter) clamp(56px, 9vw, 104px);
+    }
+
+    .doc { max-width: 68ch; margin: 0 auto; }
+
+    h1 {
+      margin: 0 0 0.4em;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .lede {
+      margin: 0 0 2.2em;
+      font-size: clamp(1.125rem, 1.6vw, 1.25rem);
+      color: var(--ink-soft);
+      text-wrap: pretty;
+    }
+
+    h2 {
+      margin: 2.4em 0 0.6em;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    p, li { color: var(--ink-soft); text-wrap: pretty; }
+    p { margin: 0 0 1em; }
+    ul { margin: 0 0 1em; padding-left: 1.2em; }
+    li + li { margin-top: 0.4em; }
+    strong { color: var(--navy); font-weight: 600; }
+
+    code {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      background: #F2EFE8;
+      border: 1px solid var(--rail);
+      border-radius: 4px;
+      padding: 0.1em 0.35em;
+      overflow-wrap: anywhere;
+    }
+
+    .ua {
+      display: block;
+      margin: 0 0 1em;
+      padding: 0.8em 1em;
+      overflow-x: auto;
+    }
+
+    .contact {
+      margin: 1.2em 0 1.6em;
+      padding: 1em 1.2em;
+      border: 1px solid var(--rail);
+      border-radius: 8px;
+      background: #F6F3EC;
+    }
+
+    .contact p { margin: 0; }
+    .contact p + p { margin-top: 0.4em; }
+
+    .updated { margin-top: 3em; font-size: 0.875rem; color: var(--ink-faint); }
+
+    .colophon {
+      border-top: 1px solid var(--rail);
+      padding: 28px var(--gutter);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.875rem;
+      color: var(--ink-faint);
+    }
+
+    .colophon a { color: var(--ink-faint); }
+
+    .colophon .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="masthead">
+      <a href="../"><img src="../assets/cupel-logo-primary.svg" alt="Cupel home" width="520" height="162"></a>
+    </header>
+
+    <main>
+      <article class="doc">
+        <h1>The Cupel crawler</h1>
+        <p class="lede">If you found <code>cupel-crawl</code> in your logs, this page explains what it is, what it fetches, and how to stop it.</p>
+
+        <div class="contact">
+          <p><strong>To opt out, report a problem, or make a data-protection request:</strong></p>
+          <p><a href="mailto:crawler@cupelhq.com">crawler@cupelhq.com</a></p>
+        </div>
+
+        <h2>What it is</h2>
+        <p>Cupel detects malicious and poisoned extensions for AI agents: MCP servers, agent skills and plugins. Malicious extensions are usually removed within days of being found, so the crawler keeps a dated copy of public extension artifacts. That record is what lets us find an extension that was harmless when approved and changed later.</p>
+
+        <h2>How to recognise it</h2>
+        <p>Every request identifies itself with this user-agent:</p>
+        <code class="ua">cupel-crawl/&lt;version&gt; (+https://cupelhq.com/crawler)</code>
+        <p>It runs from Fly.io infrastructure in Frankfurt.</p>
+
+        <h2>What it fetches</h2>
+        <ul>
+          <li><strong>Public registries and APIs</strong> built for automated clients, such as the official MCP Registry and public GitHub repositories that publish agent plugins. It stays within each service's published rate limits.</li>
+          <li><strong>MCP servers that operators have listed in a registry or plugin marketplace</strong> for clients to connect to. It connects the way a client does and asks the server to describe itself and list its tools, prompts and resources. It may also read the server's published OAuth discovery documents. Each listed server is contacted at most once a day, and usually far less often.</li>
+          <li><strong>Web content that published extensions tell AI agents to fetch</strong>, such as a URL in a skill's instructions. This is a plain <code>GET</code> for the content and nothing more.</li>
+          <li><strong>Public pages of agent-skill marketplaces</strong>, where the platform's terms and <code>robots.txt</code> allow it.</li>
+        </ul>
+
+        <h2>What it never does</h2>
+        <ul>
+          <li>It never calls a tool, submits a form, logs in, or tries to authenticate.</li>
+          <li>It never probes for vulnerabilities, sends test payloads, or reaches private networks.</li>
+          <li>It never runs anything it downloads. Fetched content is stored as inert data, and anything suspicious is kept in quarantine.</li>
+          <li>It never uses cookies, solves CAPTCHAs, rotates IP addresses, or works around a block. A block is recorded as a block.</li>
+        </ul>
+
+        <h2>Opting out</h2>
+        <p>For content that extensions point to, the crawler obeys <code>robots.txt</code>: disallow <code>cupel-crawl</code> and it stops fetching. For anything else, or to have your server, host or account excluded, email <a href="mailto:crawler@cupelhq.com">crawler@cupelhq.com</a>. We act on opt-outs within 7 days.</p>
+        <p>Copies already taken form a dated, append-only record that we do not rewrite. After an opt-out we stop collecting, and we exclude your data from anything we share outside Cupel.</p>
+
+        <h2>Personal data (GDPR notice)</h2>
+        <p>This section is the notice required by Article 14 of the GDPR for personal data we collect from public sources rather than from you.</p>
+        <ul>
+          <li><strong>Controller:</strong> Stephen O'Shaughnessy, trading as Cupel, Ireland. Contact: <a href="mailto:crawler@cupelhq.com">crawler@cupelhq.com</a>.</li>
+          <li><strong>What we collect:</strong> identifiers that appear in public extension metadata, such as publisher and maintainer usernames, display names and published contact addresses, plus public profile fields on the marketplaces listed above. We collect nothing behind a login.</li>
+          <li><strong>Source:</strong> publicly accessible registries, repositories and marketplace pages.</li>
+          <li><strong>Why:</strong> to detect malicious software and protect the people and organisations that install AI-agent extensions.</li>
+          <li><strong>Lawful basis:</strong> legitimate interests (Article 6(1)(f) GDPR) in network and information security, which Recital 49 of the GDPR recognises. We collect only public fields, we do not combine identities across platforms, and we never contact the people concerned.</li>
+          <li><strong>Who receives it:</strong> nobody outside Cupel, except the hosting providers that store and process it on our behalf (Fly.io, Neon and Cloudflare).</li>
+          <li><strong>How long:</strong> for as long as the detection record is needed. The record is append-only, so we stop collecting and exclude on request rather than edit the history.</li>
+          <li><strong>Automated decisions:</strong> Cupel classifies software artifacts, not people. We make no decisions about individuals.</li>
+          <li><strong>Your rights:</strong> you can ask for access, rectification, erasure or restriction, and you can object to this processing at any time. Email <a href="mailto:crawler@cupelhq.com">crawler@cupelhq.com</a> and we will reply within one month. You can also complain to the Irish Data Protection Commission at <a href="https://www.dataprotection.ie">dataprotection.ie</a>.</li>
+        </ul>
+
+        <p class="updated">Last updated 30 September 2026.</p>
+      </article>
+    </main>
+
+    <footer class="colophon">
+      <a href="../">Cupel</a>
+      <span class="dot" aria-hidden="true"></span>
+      <span>Crawler</span>
+      <span class="dot" aria-hidden="true"></span>
+      <a href="mailto:crawler@cupelhq.com">crawler@cupelhq.com</a>
+    </footer>
+  </div>
+</body>
+</html>
